@@ -1,0 +1,16 @@
+html, body, main {
+    height: 100vh;
+}
+
+section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: calc(100% - 170px);
+}
+
+.navigation-buttons-container {
+    position: absolute;
+    bottom: 60px;
+}
