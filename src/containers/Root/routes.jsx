@@ -4,6 +4,7 @@ import Place from "../Place";
 import Places from "../Places";
 import Reservation from "../Reservation";
 import Reservations from "../Reservations";
+import Register from "../Register";
 
 export default [
   {

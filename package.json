@@ -1,7 +1,7 @@
 {
-  "name": "practica_p5_winter_2022",
+  "name": "Student Trip Housing",
   "version": "1.0.0",
-  "description": "React training",
+  "description": "Licenta",
   "main": "index.js",
   "scripts": {
     "start": "react-scripts start",
