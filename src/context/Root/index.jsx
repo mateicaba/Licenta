@@ -17,6 +17,7 @@ import {
   loginSuccess,
   setLoader,
   unsetLoader,
+  logout,
 } from "./actions";
 import reducer, { initialState } from "./reducer";
 
@@ -39,6 +40,12 @@ export default function RootContextProvider({ children }) {
       .finally(() => dispatch(unsetLoader()));
   }, []);
 
+  const doLogout = useCallback(() => {
+    dispatch(logout());
+    sessionStorage.removeItem("currentUsername");
+    window.location.reload();
+  }, []);
+
   const fetchCurrentUser = useCallback((username) => {
     dispatch(setLoader());
     getCurrentUser(username)
@@ -49,7 +56,7 @@ export default function RootContextProvider({ children }) {
   }, []);
 
   const providerValue = useMemo(
-    () => ({ state, doLogin, fetchCurrentUser, messageApi }),
+    () => ({ state, doLogin, doLogout, fetchCurrentUser, messageApi }),
     [state]
   );
 

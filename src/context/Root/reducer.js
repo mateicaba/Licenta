@@ -6,6 +6,7 @@ export const LOGIN_FAILED = "LOGIN_FAILED";
 export const SET_LOADER = "SET_LOADER";
 export const UNSET_LOADER = "UNSET_LOADER";
 export const FETCH_CURRENT_USER = "FETCH_CURRENT_USER";
+export const LOGOUT = "LOGOUT";
 
 export const initialState = {
   user: null,
@@ -34,6 +35,8 @@ export default (state, action) =>
       case UNSET_LOADER:
         draft.isLoading = false;
         break;
+      case LOGOUT:
+        draft.user = null;
       default:
         break;
     }

@@ -5,6 +5,7 @@ import {
   LOGIN_SUCCESS,
   SET_LOADER,
   UNSET_LOADER,
+  LOGOUT,
 } from "./reducer";
 
 export function loginSuccess(user) {
@@ -39,9 +40,15 @@ export function loginRequest() {
   };
 }
 
-// export function getCurrentUser(username) {
-//   return {
-//     type: FETCH_CURRENT_USER,
-//     payload: username,
-//   };
-// }
+export function logout() {
+  return {
+    type: LOGOUT,
+  };
+}
+
+export function getCurrentUser(username) {
+  return {
+    type: FETCH_CURRENT_USER,
+    payload: username,
+  };
+}
