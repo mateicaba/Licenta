@@ -7,11 +7,10 @@ const fetchDashoard = async () => {
     .filter(({ available }) => available)
     .map(({ id, picture, available, price, company, about }) => ({
       id,
+      user_id,
+      city,
       picture,
-      available,
-      price,
-      company,
-      about,
+      description,
     }));
 };
 
