@@ -1,4 +1,4 @@
-import { AppstoreOutlined } from "@ant-design/icons";
+import { SendOutlined } from "@ant-design/icons";
 import { Layout, Menu, Space, Typography } from "antd";
 import React, { useCallback, useMemo } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
@@ -32,10 +32,10 @@ export default function Navigation() {
         direction="vertical"
         align="center"
       >
-        <Typography.Text style={{ color: "white" }}>
-          Title that I don't know yet
+        <Typography.Text style={{ color: "white"}}>
+          UniStay
         </Typography.Text>
-        <AppstoreOutlined style={{ color: "whitesmoke", fontSize: 22 }} spin />
+        <SendOutlined style={{ color: "whitesmoke", fontSize: 22 }} spin />
       </Space>
       <Menu
         theme="dark"
