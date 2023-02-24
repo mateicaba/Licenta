@@ -12,5 +12,3 @@
 5. start the database with `npm run server` (not in this repo)
 
 ## Useful links
-
-
