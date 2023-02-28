@@ -61,7 +61,7 @@ function Dashboard() {
 
   return (
     <DashboardView
-      title="Available places everywhere"
+      title="Available places in Bucharest"
       dashboard={dashboard}
       onCardClick={onCardClick}
     />

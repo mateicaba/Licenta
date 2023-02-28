@@ -3,16 +3,18 @@ import React, {
   useCallback,
   useContext,
   useMemo,
-  useReducer
+  useReducer,
 } from "react";
 import {
-  fetchDashoard,
-  fetchPlace, fetchReservedPlaces, updatePlace
+  fetchDashboard,
+  fetchPlace,
+  fetchReservedPlaces,
+  updatePlace,
 } from "../../api/places";
 import {
   dashboardLoaded,
   dashboardLoadFailed,
-  dashboardLoading
+  dashboardLoading,
 } from "./actions";
 import reducer, { initialState } from "./reducer";
 
@@ -25,9 +27,9 @@ export function useDashboardContext() {
 export default function DashboardContextProvider({ children }) {
   const [state, dispatch] = useReducer(reducer, initialState);
 
-  const loadDashboard = useCallback(() => {
+  const loadDashboard = useCallback((city_id = null) => {
     dispatch(dashboardLoading());
-    fetchDashoard()
+    fetchDashboard(city_id)
       .then((data) => {
         dispatch(dashboardLoaded(data));
       })
@@ -36,13 +38,22 @@ export default function DashboardContextProvider({ children }) {
       });
   }, []);
 
-  const reservePlace = useCallback(async (id) => {
-    const place = await fetchPlace(id);
-    place.available = false;
-    place.reserved = true;
-    await updatePlace(place);
-    loadDashboard();
+  const fetchCities = useCallback(async () => {
+    const data = await fetchDashboard();
+    const uniqueCities = [...new Set(data.map((place) => place.city))];
+    return uniqueCities;
   }, []);
+
+  const reservePlace = useCallback(
+    async (id) => {
+      const place = await fetchPlace(id);
+      place.available = false;
+      place.reserved = true;
+      await updatePlace(place);
+      loadDashboard();
+    },
+    [loadDashboard]
+  );
 
   const loadReservedPlaces = useCallback(() => {
     dispatch(dashboardLoading());
@@ -51,22 +62,34 @@ export default function DashboardContextProvider({ children }) {
       .catch((err) => dispatch(dashboardLoadFailed(err.message)));
   }, []);
 
-  const cancelReservation = useCallback(async (id) => {
-    const place = await fetchPlace(id);
-    place.available = true;
-    place.reserved = false;
-    await updatePlace(place);
-  }, []);
+  const cancelReservation = useCallback(
+    async (id) => {
+      const place = await fetchPlace(id);
+      place.available = true;
+      place.reserved = false;
+      await updatePlace(place);
+      loadDashboard();
+    },
+    [loadDashboard]
+  );
 
   const providerValue = useMemo(
     () => ({
       dashboard: state,
       loadDashboard,
+      fetchCities,
       reservePlace,
       loadReservedPlaces,
       cancelReservation,
     }),
-    [state]
+    [
+      state,
+      loadDashboard,
+      fetchCities,
+      reservePlace,
+      loadReservedPlaces,
+      cancelReservation,
+    ]
   );
   return (
     <DashboardContext.Provider value={providerValue}>

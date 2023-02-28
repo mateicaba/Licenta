@@ -1,17 +1,25 @@
 import axios from "axios";
 import { API_URL } from "./constants";
 
-const fetchDashoard = async () => {
+const fetchDashboard = async (city_id = null) => {
   const places = await axios.get(`${API_URL}/places`);
-  return places.data
-    .filter(({ available }) => available)
-    .map(({ id, picture, available, price, company, about }) => ({
+  let filteredPlaces = places.data.filter(({ available }) => available);
+  if (city_id !== null) {
+    filteredPlaces = filteredPlaces.filter(
+      ({ city_id }) => city_id === city_id
+    );
+  }
+  return filteredPlaces.map(
+    ({ id, picture, city_id, available, price, company, about }) => ({
       id,
-      user_id,
-      city,
       picture,
-      description,
-    }));
+      city_id,
+      available,
+      price,
+      company,
+      about,
+    })
+  );
 };
 
 const fetchPlace = async (id) => {
@@ -43,7 +51,7 @@ const deletePlace = async (id) => {
 };
 
 export {
-  fetchDashoard,
+  fetchDashboard,
   fetchPlace,
   createPlace,
   updatePlace,

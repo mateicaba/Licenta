@@ -11,9 +11,29 @@ export default [
     label: "Dashboard",
   },
   {
-    key: "/places",
+    key: "/placesBucharest",
     icon: <HeatMapOutlined />,
-    label: "Places",
+    label: "Bucharest",
+  },
+  {
+    key: "/placesCluj",
+    icon: <HeatMapOutlined />,
+    label: "Cluj",
+  },
+  {
+    key: "/placesIasi",
+    icon: <HeatMapOutlined />,
+    label: "Iasi",
+  },
+  {
+    key: "/placesBrasov",
+    icon: <HeatMapOutlined />,
+    label: "Brasov",
+  },
+  {
+    key: "/placesTimisoara",
+    icon: <HeatMapOutlined />,
+    label: "Timisoara",
   },
   {
     key: "/reservations",
