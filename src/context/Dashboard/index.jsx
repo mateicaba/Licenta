@@ -7,6 +7,11 @@ import React, {
 } from "react";
 import {
   fetchDashboard,
+  fetchBucharestDashboard,
+  fetchClujDashboard,
+  fetchIasiDashboard,
+  fetchBrasovDashboard,
+  fetchTimisoaraDashboard,
   fetchPlace,
   fetchReservedPlaces,
   updatePlace,
@@ -30,6 +35,61 @@ export default function DashboardContextProvider({ children }) {
   const loadDashboard = useCallback((city_id = null) => {
     dispatch(dashboardLoading());
     fetchDashboard(city_id)
+      .then((data) => {
+        dispatch(dashboardLoaded(data));
+      })
+      .catch((err) => {
+        dispatch(dashboardLoadFailed(err.message));
+      });
+  }, []);
+
+  const loadBucharestDashboard = useCallback((city_id = null) => {
+    dispatch(dashboardLoading());
+    fetchBucharestDashboard(city_id)
+      .then((data) => {
+        dispatch(dashboardLoaded(data));
+      })
+      .catch((err) => {
+        dispatch(dashboardLoadFailed(err.message));
+      });
+  }, []);
+
+  const loadClujDashboard = useCallback((city_id = null) => {
+    dispatch(dashboardLoading());
+    fetchClujDashboard(city_id)
+      .then((data) => {
+        dispatch(dashboardLoaded(data));
+      })
+      .catch((err) => {
+        dispatch(dashboardLoadFailed(err.message));
+      });
+  }, []);
+
+  const loadIasiDashboard = useCallback((city_id = null) => {
+    dispatch(dashboardLoading());
+    fetchIasiDashboard(city_id)
+      .then((data) => {
+        dispatch(dashboardLoaded(data));
+      })
+      .catch((err) => {
+        dispatch(dashboardLoadFailed(err.message));
+      });
+  }, []);
+
+  const loadBrasovDashboard = useCallback((city_id = null) => {
+    dispatch(dashboardLoading());
+    fetchBrasovDashboard(city_id)
+      .then((data) => {
+        dispatch(dashboardLoaded(data));
+      })
+      .catch((err) => {
+        dispatch(dashboardLoadFailed(err.message));
+      });
+  }, []);
+
+  const loadTimisoaraDashboard = useCallback((city_id = null) => {
+    dispatch(dashboardLoading());
+    fetchTimisoaraDashboard(city_id)
       .then((data) => {
         dispatch(dashboardLoaded(data));
       })
@@ -77,6 +137,11 @@ export default function DashboardContextProvider({ children }) {
     () => ({
       dashboard: state,
       loadDashboard,
+      loadBucharestDashboard,
+      loadClujDashboard,
+      loadIasiDashboard,
+      loadBrasovDashboard,
+      loadTimisoaraDashboard,
       fetchCities,
       reservePlace,
       loadReservedPlaces,
@@ -85,6 +150,11 @@ export default function DashboardContextProvider({ children }) {
     [
       state,
       loadDashboard,
+      loadBucharestDashboard,
+      loadClujDashboard,
+      loadIasiDashboard,
+      loadBrasovDashboard,
+      loadTimisoaraDashboard,
       fetchCities,
       reservePlace,
       loadReservedPlaces,

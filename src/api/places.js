@@ -22,6 +22,131 @@ const fetchDashboard = async (city_id = null) => {
   );
 };
 
+const fetchBucharestDashboard = async (city_id = null) => {
+  const places = await axios.get(`${API_URL}/places`);
+
+  let filteredPlaces = places.data.filter(
+    ({ available, city_id }) => available && city_id === 0
+  );
+
+  if (city_id !== null) {
+    filteredPlaces = filteredPlaces.filter(
+      ({ city_id }) => city_id === city_id
+    );
+  }
+  return filteredPlaces.map(
+    ({ id, picture, city_id, available, price, company, about }) => ({
+      id,
+      picture,
+      city_id,
+      available,
+      price,
+      company,
+      about,
+    })
+  );
+};
+
+const fetchClujDashboard = async (city_id = null) => {
+  const places = await axios.get(`${API_URL}/places`);
+
+  let filteredPlaces = places.data.filter(
+    ({ available, city_id }) => available && city_id === 1
+  );
+
+  if (city_id !== null) {
+    filteredPlaces = filteredPlaces.filter(
+      ({ city_id }) => city_id === city_id
+    );
+  }
+  return filteredPlaces.map(
+    ({ id, picture, city_id, available, price, company, about }) => ({
+      id,
+      picture,
+      city_id,
+      available,
+      price,
+      company,
+      about,
+    })
+  );
+};
+
+const fetchIasiDashboard = async (city_id = null) => {
+  const places = await axios.get(`${API_URL}/places`);
+
+  let filteredPlaces = places.data.filter(
+    ({ available, city_id }) => available && city_id === 2
+  );
+
+  if (city_id !== null) {
+    filteredPlaces = filteredPlaces.filter(
+      ({ city_id }) => city_id === city_id
+    );
+  }
+  return filteredPlaces.map(
+    ({ id, picture, city_id, available, price, company, about }) => ({
+      id,
+      picture,
+      city_id,
+      available,
+      price,
+      company,
+      about,
+    })
+  );
+};
+
+const fetchBrasovDashboard = async (city_id = null) => {
+  const places = await axios.get(`${API_URL}/places`);
+
+  let filteredPlaces = places.data.filter(
+    ({ available, city_id }) => available && city_id === 3
+  );
+
+  if (city_id !== null) {
+    filteredPlaces = filteredPlaces.filter(
+      ({ city_id }) => city_id === city_id
+    );
+  }
+  return filteredPlaces.map(
+    ({ id, picture, city_id, available, price, company, about }) => ({
+      id,
+      picture,
+      city_id,
+      available,
+      price,
+      company,
+      about,
+    })
+  );
+};
+
+const fetchTimisoaraDashboard = async (city_id = null) => {
+  const places = await axios.get(`${API_URL}/places`);
+
+  let filteredPlaces = places.data.filter(
+    ({ available, city_id }) => available && city_id === 4
+  );
+
+  if (city_id !== null) {
+    filteredPlaces = filteredPlaces.filter(
+      ({ city_id }) => city_id === city_id
+    );
+  }
+  return filteredPlaces.map(
+    ({ id, picture, city_id, available, price, company, about }) => ({
+      id,
+      picture,
+      city_id,
+      available,
+      price,
+      company,
+      about,
+    })
+  );
+};
+
 const fetchPlace = async (id) => {
   const places = await axios.get(`${API_URL}/places/${id}`);
   return places.data;
@@ -52,6 +177,11 @@ const deletePlace = async (id) => {
 
 export {
   fetchDashboard,
+  fetchBucharestDashboard,
+  fetchClujDashboard,
+  fetchIasiDashboard,
+  fetchBrasovDashboard,
+  fetchTimisoaraDashboard,
   fetchPlace,
   createPlace,
   updatePlace,

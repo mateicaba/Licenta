@@ -25,7 +25,8 @@ function CityName({ cityId }) {
 }
 
 function Dashboard() {
-  const { dashboard, loadBucharestDashboard, reservePlace } = useDashboardContext();
+  const { dashboard, loadTimisoaraDashboard, reservePlace } =
+    useDashboardContext();
   const { messageApi } = useRootContext();
   const { openModal } = useModalContext();
 
@@ -56,12 +57,12 @@ function Dashboard() {
   );
 
   useEffect(() => {
-    loadBucharestDashboard();
+    loadTimisoaraDashboard();
   }, []);
 
   return (
     <DashboardView
-      title="Available places in Bucharest"
+      title="Available places in Timisoara"
       dashboard={dashboard}
       onCardClick={onCardClick}
     />

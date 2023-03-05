@@ -115,7 +115,7 @@
     },
     {
       "id": "ac5da3b0-075d-44bc-a0d1-4a5430826b46",
-      "available": false,
+      "available": true,
       "price": "$2,707.14",
       "picture": "https://random.imagecdn.app/150/150",
       "city_id": 1,
@@ -123,11 +123,11 @@
       "email": "delaneydotson@kegular.com",
       "phone": "(852) 497-3666",
       "about": "Aute eu tempor eiusmod ad excepteur nulla. Veniam non pariatur eiusmod velit cupidatat excepteur ut laboris aliquip elit cupidatat mollit. Dolor minim commodo quis irure aute incididunt. Do voluptate enim culpa in adipisicing veniam amet sunt ipsum. Id culpa do in sint deserunt occaecat nostrud sunt deserunt. Minim culpa labore culpa adipisicing id ea deserunt magna reprehenderit.\r\n",
-      "reserved": true
+      "reserved": false
     },
     {
       "id": "5b05d6c2-9f04-44dc-bd2d-e6ad92afbca2",
-      "available": false,
+      "available": true,
       "price": "$2,976.87",
       "picture": "https://random.imagecdn.app/150/150",
       "city_id": 3,
@@ -135,7 +135,7 @@
       "email": "delaneydotson@icology.com",
       "phone": "(807) 451-2571",
       "about": "Velit reprehenderit deserunt reprehenderit magna esse aliqua cupidatat pariatur labore. Nulla ut tempor nostrud esse Lorem laboris sit. Aliquip esse laboris dolore quis.\r\n",
-      "reserved": true
+      "reserved": false
     },
     {
       "id": "b902d38e-ebb2-468e-928d-eb4310ff5bcf",

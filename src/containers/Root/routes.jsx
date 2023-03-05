@@ -4,9 +4,13 @@ import Place from "../Place";
 import Places from "../Places";
 import Reservation from "../Reservation";
 import Reservations from "../Reservations";
-import Register from "../Register";
-import DashboardBucharest from "../DashboardBucharest";
 
+import DashboardBucharest from "../DashboardBucharest";
+import DashboardCluj from "../DashboardCluj";
+import DashboardIasi from "../DashboardIasi";
+import DashboardBrasov from "../DashboardBrasov";
+import DashboardTimisoara from "../DashboardTimisoara";
+h
 export default [
   {
     path: "/",
@@ -18,19 +22,19 @@ export default [
   },
   {
     path: "/placesCluj",
-    element: <Dashboard />,
+    element: <DashboardCluj />,
   },
   {
     path: "/placesIasi",
-    element: <Dashboard />,
+    element: <DashboardIasi />,
   },
   {
     path: "/placesBrasov",
-    element: <Dashboard />,
+    element: <DashboardBrasov />,
   },
   {
     path: "/placesTimisoara",
-    element: <Dashboard />,
+    element: <DashboardTimisoara />,
   },
   {
     path: "/places",
