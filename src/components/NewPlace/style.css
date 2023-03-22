@@ -1,0 +1,24 @@
+.new-place {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 20px;
+  backdrop-filter: blur(10px);
+  background-color: rgba(255, 255, 255, 0.5);
+  padding: 20px;
+  margin-right: 180px;
+  margin-top: 30px;
+}
+
+.new-place h1 {
+  font-size: 36px;
+  margin-bottom: 20px;
+  color: green;
+}
+
+.ant-form-item {
+  margin-bottom: 12px;
+  width: 100%;
+  max-width: 400px;
+}
+
