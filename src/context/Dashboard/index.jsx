@@ -104,17 +104,6 @@ export default function DashboardContextProvider({ children }) {
     return uniqueCities;
   }, []);
 
-  const reservePlace = useCallback(
-    async (id) => {
-      const place = await fetchPlace(id);
-      place.available = false;
-      place.reserved = true;
-      await updatePlace(place);
-      loadDashboard();
-    },
-    [loadDashboard]
-  );
-
   const loadReservedPlaces = useCallback(() => {
     dispatch(dashboardLoading());
     fetchReservedPlaces()
@@ -122,11 +111,22 @@ export default function DashboardContextProvider({ children }) {
       .catch((err) => dispatch(dashboardLoadFailed(err.message)));
   }, []);
 
+  const reservePlace = useCallback(
+    async (id) => {
+      const place = await fetchPlace(id);
+      place.available = false;
+      place.reserved = sessionStorage.getItem("currentUsername");
+      await updatePlace(place);
+      loadDashboard();
+    },
+    [loadDashboard]
+  );
+
   const cancelReservation = useCallback(
     async (id) => {
       const place = await fetchPlace(id);
       place.available = true;
-      place.reserved = false;
+      place.reserved = "";
       await updatePlace(place);
       loadDashboard();
     },

@@ -10,7 +10,7 @@ import DashboardCluj from "../DashboardCluj";
 import DashboardIasi from "../DashboardIasi";
 import DashboardBrasov from "../DashboardBrasov";
 import DashboardTimisoara from "../DashboardTimisoara";
-h
+
 export default [
   {
     path: "/",

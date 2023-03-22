@@ -153,7 +153,11 @@ const fetchPlace = async (id) => {
 };
 
 const fetchReservedPlaces = async () => {
-  const params = new URLSearchParams({ available: false, reserved: true });
+  const currentUsername = sessionStorage.getItem("currentUsername");
+  const params = new URLSearchParams({
+    available: false,
+    reserved: currentUsername,
+  });
   const places = await axios.get(
     `${API_URL}/places?${params}`
   );
