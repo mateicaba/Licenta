@@ -20,6 +20,20 @@
       "password": "test2",
       "rented": 0,
       "hosted": 0
+    },
+    {
+      "id": 1680285382711,
+      "username": "Caba David",
+      "password": "parola",
+      "rented": 0,
+      "hosted": 0
+    },
+    {
+      "id": 1680285452920,
+      "username": "david",
+      "password": "1",
+      "rented": 0,
+      "hosted": 0
     }
   ],
   "cities": [
