@@ -29,13 +29,17 @@ function cityReducer(state, action) {
   }
 }
 
+const instance = axios.create({
+  baseURL: "http://localhost:3001",
+});
+
 export function CityProvider(props) {
   const [state, dispatch] = useReducer(cityReducer, initialState);
 
   const fetchCities = async () => {
     dispatch({ type: "FETCH_CITIES_REQUEST" });
     try {
-      const response = await axios.get("/cities");
+      const response = await instance.get("/cities");
       dispatch({ type: "FETCH_CITIES_SUCCESS", payload: response.data });
     } catch (error) {
       dispatch({ type: "FETCH_CITIES_FAILURE", payload: error.message });
@@ -44,7 +48,7 @@ export function CityProvider(props) {
 
   const addCity = async (city) => {
     try {
-      const response = await axios.post("/cities", city);
+      const response = await instance.post("/cities", city);
       dispatch({ type: "ADD_CITY", payload: response.data });
     } catch (error) {
       console.log(error);
@@ -53,7 +57,7 @@ export function CityProvider(props) {
 
   const deleteCity = async (id) => {
     try {
-      await axios.delete(`/cities/${id}`);
+      await instance.delete(`/cities/${id}`);
       dispatch({ type: "DELETE_CITY", payload: id });
     } catch (error) {
       console.log(error);

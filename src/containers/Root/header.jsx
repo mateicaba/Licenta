@@ -2,6 +2,7 @@ import { Layout, Button, Popconfirm } from "antd";
 import React, { useState } from "react";
 import { useRootContext } from "../../context/Root";
 import NewPlace from "../../components/NewPlace";
+import { CityProvider } from "../../context/Cities";
 
 export default function Header() {
   const { doLogout } = useRootContext();
@@ -55,7 +56,11 @@ export default function Header() {
         </div>
       </div>
       <div>
-        {showNewPlaceForm && <NewPlace onCancel={handleCancelNewPlaceClick} />}
+        {showNewPlaceForm && (
+          <CityProvider>
+            <NewPlace onCancel={handleCancelNewPlaceClick} />
+          </CityProvider>
+        )}
       </div>
     </Layout.Header>
   );

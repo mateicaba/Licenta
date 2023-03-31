@@ -4,6 +4,8 @@ import React from "react";
 import { createRoot } from "react-dom/client";
 import { BrowserRouter } from "react-router-dom";
 import App from "./containers/App";
+import { CityProvider } from "./context/Cities";
+import DashboardContextProvider from "./context/Dashboard";
 import ModalManager from "./context/Modal";
 import RootContextProvider from "./context/Root";
 
@@ -16,7 +18,11 @@ main.render(
     <RootContextProvider>
       <BrowserRouter>
         <ModalManager>
-          <App />
+          <DashboardContextProvider>
+            <CityProvider>
+              <App />
+            </CityProvider>
+          </DashboardContextProvider>
         </ModalManager>
       </BrowserRouter>
     </RootContextProvider>
