@@ -26,7 +26,7 @@ const fetchBucharestDashboard = async (city_id = null) => {
   const places = await axios.get(`${API_URL}/places`);
 
   let filteredPlaces = places.data.filter(
-    ({ available, city_id }) => available && city_id === 0
+    ({ available, city_id }) => available && city_id === 5
   );
 
   if (city_id !== null) {

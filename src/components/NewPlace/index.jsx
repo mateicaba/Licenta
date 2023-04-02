@@ -2,12 +2,10 @@ import React, { useState, useEffect } from "react";
 import { Form, Input, Button, Upload, Select } from "antd";
 import "./style.css";
 import { uploadPhoto } from "../../api/awsConnection";
-import { useCity } from "../../context/Cities";
 
 const { Option } = Select;
 
 const NewPlace = ({ onCancel }) => {
-  const { fetchCities } = useCity();
   const [fileList, setFileList] = useState([]);
   const [cityId, setCityId] = useState("");
   const [cityName, setCityName] = useState("");
@@ -39,11 +37,12 @@ const NewPlace = ({ onCancel }) => {
 
   useEffect(() => {
     async function fetchCitiesData() {
-      const data = await fetchCities();
+      const response = await fetch(`http://localhost:3001/cities`);
+      const data = await response.json();
       setCities(data);
     }
     fetchCitiesData();
-  }, [fetchCities]);
+  }, []);
 
   const onRemove = (file) => {
     setFileList([]);
@@ -106,9 +105,13 @@ const NewPlace = ({ onCancel }) => {
           name="city"
           rules={[{ required: true, message: "Please select a city!" }]}
         >
-          <Select placeholder="Select a city" onChange={onCityChange}>
+          <Select
+            placeholder="Select a city"
+            onChange={onCityChange}
+            value={cityId}
+          >
             {cities.map((city) => (
-              <Option key={city.id} value={`${city.id}-${city.name}`}>
+              <Option key={city.id} value={city.id}>
                 {city.name}
               </Option>
             ))}
