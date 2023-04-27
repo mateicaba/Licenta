@@ -6,6 +6,8 @@ import DashboardContextProvider, {
 } from "../../context/Dashboard";
 import { useRootContext } from "../../context/Root";
 import withContext from "../../context/withContext";
+import ReviewForm from "../../components/ReviewForm";
+import ReviewList from "../../components/ReviewList";
 
 function Reservation() {
   const { cancelReservation, loadReservedPlaces } = useDashboardContext();
@@ -54,6 +56,8 @@ function Reservation() {
       <p>Some contents...</p>
       <p>Some contents...</p>
       <p>Some contents...</p>
+      <ReviewForm />
+      <ReviewList />
     </Drawer>
   );
 }
