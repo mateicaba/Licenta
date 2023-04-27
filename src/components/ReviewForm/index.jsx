@@ -5,18 +5,23 @@ import ReviewContext from "../../context/Reviews/ReviewContext";
 const ReviewForm = ({ placeId, review, onClose }) => {
   const { addReview, editReview } = useContext(ReviewContext);
   const [formData, setFormData] = useState({
-    rating: review ? review.rating : 3,
+    rating: review && review.rating !== null ? review.rating : 3,
     comment: review ? review.comment : "",
   });
 
-  const handleSubmit = () => {
-    if (review) {
-      editReview(review.id, { ...formData, placeId });
-      onClose();
+  const handleSubmit = async (values) => {
+    const { comment, rating } = values;
+    const reviewData = { placeId, comment };
+    if (review && review.id) {
+      editReview(review.id, {
+        ...review,
+        ...reviewData,
+        ...(rating && { rating }),
+      });
     } else {
-      addReview({ ...formData, placeId });
-      setFormData({ rating: 3, comment: "" });
+      addReview({ ...reviewData, ...(rating && { rating }) });
     }
+    onClose();
   };
 
   const handleCancel = () => {
@@ -26,7 +31,10 @@ const ReviewForm = ({ placeId, review, onClose }) => {
   return (
     <Form onFinish={handleSubmit}>
       <Form.Item name="rating" initialValue={formData.rating}>
-        <Rate allowHalf />
+        <Rate
+          initialValue={review && review.rating !== null ? review.rating : 3}
+          allowHalf
+        />
       </Form.Item>
       <Form.Item
         name="comment"
