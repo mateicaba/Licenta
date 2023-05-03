@@ -8,13 +8,14 @@ import DashboardContextProvider, {
 import { useModalContext } from "../../context/Modal";
 import { useRootContext } from "../../context/Root";
 import withContext from "../../context/withContext";
+import { API_URL } from "../../api/constants";
 
 function CityName({ cityId }) {
   const [cityName, setCityName] = useState("");
 
   useEffect(() => {
     async function fetchCityName() {
-      const response = await fetch(`http://localhost:3001/cities/${cityId}`);
+      const response = await fetch(`${API_URL}/cities/${cityId}`);
       const city = await response.json();
       setCityName(city.name);
     }

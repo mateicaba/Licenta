@@ -2,6 +2,7 @@ import { CheckCircleOutlined } from "@ant-design/icons";
 import { Card, Col } from "antd";
 import React, { useState, useEffect } from "react";
 import { getPhotoUrl } from "../../api/awsConnection";
+import { API_URL } from "../../api/constants";
 
 export default function CardList({ list, onCardClick }) {
   function PlaceCard({ place }) {
@@ -11,9 +12,7 @@ export default function CardList({ list, onCardClick }) {
     useEffect(() => {
       async function fetchCityName() {
         // Fetch the city name based on the city id stored in the place data
-        const response = await fetch(
-          `http://localhost:3001/cities/${place.city_id}`
-        );
+        const response = await fetch(`${API_URL}/cities/${place.city_id}`);
         const city = await response.json();
         setCityName(city.name);
       }

@@ -8,6 +8,7 @@ import { CityProvider } from "./context/Cities";
 import DashboardContextProvider from "./context/Dashboard";
 import ModalManager from "./context/Modal";
 import RootContextProvider from "./context/Root";
+import ReviewProvider from "./context/Reviews/ReviewProvider";
 
 const root = document.getElementById("root");
 
@@ -20,7 +21,9 @@ main.render(
         <ModalManager>
           <DashboardContextProvider>
             <CityProvider>
-              <App />
+              <ReviewProvider>
+                <App />
+              </ReviewProvider>
             </CityProvider>
           </DashboardContextProvider>
         </ModalManager>

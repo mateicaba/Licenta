@@ -4,6 +4,7 @@ import { LockOutlined, UserOutlined } from "@ant-design/icons";
 import axios from "axios";
 import "./style.css";
 import LoginView from "../LoginView";
+import { API_URL } from "../../api/constants";
 
 const RegistrationForm = () => {
   const [form] = Form.useForm();
@@ -22,7 +23,7 @@ const RegistrationForm = () => {
       }
 
       // check if username is already taken
-      const { data: users } = await axios.get("http://localhost:3001/users");
+      const { data: users } = await axios.get(`${API_URL}/users`);
       const takenUsername = users.find(
         (user) => user.username === values.username
       );
@@ -39,7 +40,7 @@ const RegistrationForm = () => {
         rented: 0,
         hosted: 0,
       };
-      await axios.post("http://localhost:3001/users", newUser);
+      await axios.post(`${API_URL}/users`, newUser);
       message.success("New user created");
       form.resetFields();
     } catch (error) {
