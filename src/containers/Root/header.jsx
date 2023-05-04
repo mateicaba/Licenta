@@ -1,11 +1,24 @@
 import { Layout, Button, Popconfirm } from "antd";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useRootContext } from "../../context/Root";
 import NewPlace from "../../components/NewPlace";
 import { CityProvider } from "../../context/Cities";
 
 export default function Header() {
   const { doLogout } = useRootContext();
+  const [userRatio, setUserRatio] = useState(0);
+
+  useEffect(() => {
+    async function fetchData() {
+      const response = await fetch("http://localhost:3001/users");
+      const data = await response.json();
+      const totalHosted = data.reduce((acc, user) => acc + user.hosted, 0);
+      const totalRented = data.reduce((acc, user) => acc + user.rented, 0);
+      setUserRatio(totalHosted / totalRented);
+    }
+    fetchData();
+  }, []);
+
   const [showNewPlaceForm, setShowNewPlaceForm] = useState(false);
 
   const handleNewPlaceClick = () => {
@@ -35,6 +48,9 @@ export default function Header() {
         }}
       >
         <div style={{ flexGrow: 1 }}>Places</div>
+        <div
+          style={{ marginRight: "20px" }}
+        >{`Hosted/Rented Ratio: ${userRatio.toFixed(2)}`}</div>
         <div>
           <Button
             type="primary"

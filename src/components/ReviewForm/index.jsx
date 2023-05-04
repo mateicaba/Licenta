@@ -19,10 +19,12 @@ const ReviewForm = ({ placeId, review, onClose }) => {
         ...(rating && { rating }),
       });
     } else {
-      addReview({ ...reviewData, ...(rating && { rating }) });
+      addReview({ ...reviewData, placeId, ...(rating && { rating }) });
+      // Pass placeId as a separate property in the addReview method.
     }
     onClose();
   };
+
 
   const handleCancel = () => {
     onClose();

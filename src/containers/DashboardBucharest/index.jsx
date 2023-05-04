@@ -30,31 +30,48 @@ function Dashboard() {
   const { messageApi } = useRootContext();
   const { openModal } = useModalContext();
 
-  const onCardClick = useCallback(
-    (cardData) => {
-      openModal({
-        renderContent: () => (
-          <Space direction="vertical">
-            <Typography.Title>Reserve {cardData.company}</Typography.Title>
-            <div>{cardData.about}</div>
-            <div>
-              <CityName cityId={cardData.city_id} />{" "}
-              <CheckCircleOutlined style={{ color: "green" }} />
-            </div>
-          </Space>
-        ),
-        okText: "Reserve",
-        callback: () => {
-          reservePlace(cardData.id).then(() => {
-            messageApi.success(
-              `Reservation for ${cardData.company} was successful!`
-            );
-          });
-        },
-      });
-    },
-    [openModal]
-  );
+   const incrementRented = useCallback(async () => {
+     const username = sessionStorage.getItem("currentUsername");
+     const userResponse = await fetch(`${API_URL}/users?username=${username}`);
+     const user = await userResponse.json();
+     const updatedUser = {
+       ...user[0],
+       rented: user[0].rented + 1,
+     };
+     await fetch(`${API_URL}/users/${user[0].id}`, {
+       method: "PUT",
+       headers: {
+         "Content-Type": "application/json",
+       },
+       body: JSON.stringify(updatedUser),
+     });
+   }, []);
+
+   const onCardClick = useCallback(
+     (cardData) => {
+       openModal({
+         renderContent: () => (
+           <Space direction="vertical">
+             <Typography.Title>Reserve {cardData.company}</Typography.Title>
+             <div>{cardData.about}</div>
+             <div>
+               <CityName cityId={cardData.city_id} />{" "}
+               <CheckCircleOutlined style={{ color: "green" }} />
+             </div>
+           </Space>
+         ),
+         okText: "Reserve",
+         callback: async () => {
+           await reservePlace(cardData.id);
+           messageApi.success(
+             `Reservation for ${cardData.company} was successful!`
+           );
+           await incrementRented();
+         },
+       });
+     },
+     [openModal, reservePlace, incrementRented, messageApi]
+   );
 
   useEffect(() => {
     loadBucharestDashboard();

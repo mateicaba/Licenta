@@ -8,6 +8,7 @@ import { useRootContext } from "../../context/Root";
 import withContext from "../../context/withContext";
 import ReviewForm from "../../components/ReviewForm";
 import ReviewList from "../../components/ReviewList";
+import { API_URL } from "../../api/constants";
 
 function Reservation() {
   const { cancelReservation, loadReservedPlaces } = useDashboardContext();
@@ -20,12 +21,27 @@ function Reservation() {
     navigate(-1);
   }, []);
 
-  const onCancelReservation = useCallback(() => {
-    cancelReservation(reservationId).then(() => {
-      messageApi.success("Reservation was cancelled!");
-      navigate(-1);
-    });
-  }, [reservationId]);
+const onCancelReservation = useCallback(async () => {
+  const username = sessionStorage.getItem("currentUsername");
+  const userResponse = await fetch(`${API_URL}/users?username=${username}`);
+  const user = await userResponse.json();
+  const updatedUser = {
+    ...user[0],
+    rented: user[0].rented - 1,
+  };
+  await fetch(`${API_URL}/users/${user[0].id}`, {
+    method: "PUT",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(updatedUser),
+  });
+  cancelReservation(reservationId).then(() => {
+    messageApi.success("Reservation was cancelled!");
+    navigate(-1);
+  });
+}, [reservationId]);
+
 
   return (
     <Drawer

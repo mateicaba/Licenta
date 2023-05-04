@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Form, Input, Button, Upload, Select } from "antd";
 import "./style.css";
 import { uploadPhoto } from "../../api/awsConnection";
-
+import { API_URL } from "../../api/constants";
 const { Option } = Select;
 
 const NewPlace = ({ onCancel }) => {
@@ -13,13 +13,28 @@ const NewPlace = ({ onCancel }) => {
 
   const onFinish = async (values) => {
     console.log("Received values of form: ", values);
+    console.log("onFinish function called");
     try {
       const file = fileList[0];
       const key = await uploadPhoto(file);
       console.log("Uploaded file with key:", key);
       // Add the key to the form values before submitting
       values.picture = key;
-      // TODO: Submit the form values to your backend
+      // Submit the form values to your backend
+      const response = await fetch(`${API_URL}/places`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(values),
+      });
+      if (response.ok) {
+        // Handle success, e.g. show success message, redirect, etc.
+        console.log("Form data submitted successfully:", values);
+      } else {
+        // Handle error, e.g. show error message, etc.
+        console.error("Failed to submit form data:", response.statusText);
+      }
     } catch (error) {
       console.error("Failed to upload file:", error);
     }
@@ -28,7 +43,7 @@ const NewPlace = ({ onCancel }) => {
   useEffect(() => {
     async function fetchCityName() {
       // Fetch the city name based on the city id stored in the place data
-      const response = await fetch(`http://localhost:3001/cities/${cityId}`);
+      const response = await fetch(`${API_URL}/cities/${cityId}`);
       const city = await response.json();
       setCityName(city.name);
     }
@@ -37,7 +52,7 @@ const NewPlace = ({ onCancel }) => {
 
   useEffect(() => {
     async function fetchCitiesData() {
-      const response = await fetch(`http://localhost:3001/cities`);
+      const response = await fetch(`${API_URL}/cities`);
       const data = await response.json();
       setCities(data);
     }
