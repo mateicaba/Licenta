@@ -1,7 +1,8 @@
-import { SendOutlined } from "@ant-design/icons";
+import { CompassOutlined } from "@ant-design/icons";
 import { Layout, Menu, Space, Typography } from "antd";
 import React, { useCallback, useMemo } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
+import { Scrollbars } from "react-custom-scrollbars";
 import menu from "./menu";
 
 export default function Navigation() {
@@ -25,31 +26,60 @@ export default function Navigation() {
         left: 0,
         top: 0,
         bottom: 0,
+        scrollbarWidth: "thin", // Adjust the width of the scrollbar
+        scrollbarColor: "#888 #f1f1f1", // Define the color of the thumb and track
       }}
     >
-      <Space
-        style={{ height: 100, padding: 10 }}
-        direction="vertical"
-        align="center"
+      <Scrollbars
+        autoHide
+        autoHideTimeout={500}
+        autoHideDuration={200}
+        renderThumbVertical={({ style, ...props }) => (
+          <div
+            {...props}
+            style={{
+              ...style,
+              backgroundColor: "#888",
+              borderRadius: "5px",
+            }}
+          />
+        )}
       >
-        <Typography.Text style={{ color: "white"}}>
-          UniStay
-        </Typography.Text>
-        <SendOutlined style={{ color: "whitesmoke", fontSize: 22 }} spin />
-      </Space>
-      <Menu
-        theme="dark"
-        onClick={onNavigationClick}
-        defaultSelectedKeys={[defaultNavigationKey]}
-        selectedKeys={[defaultNavigationKey]}
-        items={menu}
-      />
-      <Space
-        style={{ flex: 1, height: "calc(100vh - 172px)" }}
-        direction="vertical"
-      >
-        &nbsp;
-      </Space>
+        <Space
+          style={{
+            height: 100,
+            padding: 10,
+            display: "flex",
+            flexDirection: "column",
+            justifyContent: "center",
+            alignItems: "center",
+          }}
+        >
+          <Typography.Text
+            style={{
+              color: "white",
+              fontFamily: "Courier New",
+              fontSize: 24,
+            }}
+          >
+            UniStay
+          </Typography.Text>
+          <CompassOutlined style={{ color: "whitesmoke", fontSize: 22 }} spin />
+        </Space>
+        <Menu
+          theme="dark"
+          onClick={onNavigationClick}
+          defaultSelectedKeys={[defaultNavigationKey]}
+          selectedKeys={[defaultNavigationKey]}
+          items={menu}
+        />
+        <Space
+          style={{ flex: 1, height: "calc(100vh - 172px)" }}
+          direction="vertical"
+        >
+          &nbsp;
+        </Space>
+      </Scrollbars>
     </Layout.Sider>
   );
 }

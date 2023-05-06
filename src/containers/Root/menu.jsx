@@ -1,7 +1,8 @@
 import {
   DashboardOutlined,
   HeatMapOutlined,
-  UploadOutlined
+  UploadOutlined,
+  HomeOutlined
 } from "@ant-design/icons";
 
 export default [
@@ -39,5 +40,10 @@ export default [
     key: "/reservations",
     icon: <UploadOutlined />,
     label: "Reservations",
+  },
+  {
+    key: "/myPlaces",
+    icon: <HomeOutlined />,
+    label: "My Places",
   },
 ];

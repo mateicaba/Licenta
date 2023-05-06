@@ -10,6 +10,7 @@ import DashboardCluj from "../DashboardCluj";
 import DashboardIasi from "../DashboardIasi";
 import DashboardBrasov from "../DashboardBrasov";
 import DashboardTimisoara from "../DashboardTimisoara";
+import DashboardMyPlaces from "../DashboardMyPlaces";
 
 export default [
   {
@@ -35,6 +36,10 @@ export default [
   {
     path: "/placesTimisoara",
     element: <DashboardTimisoara />,
+  },
+  {
+    path: "/myPlaces",
+    element: <DashboardMyPlaces />,
   },
   {
     path: "/places",

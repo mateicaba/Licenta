@@ -147,6 +147,42 @@ const fetchTimisoaraDashboard = async (city_id = null) => {
   );
 };
 
+const fetchMyPlacesDashboard = async (city_id = null) => {
+  // Get the current user's username from session storage
+  const username = sessionStorage.getItem("currentUsername");
+
+  // Fetch the user based on the username
+  const userResponse = await axios.get(`${API_URL}/users?username=${username}`);
+  const user = userResponse.data[0];
+  const userId = user.id;
+
+  // Fetch the places associated with the user ID
+  const placesResponse = await axios.get(`${API_URL}/places?user_id=${userId}`);
+  let filteredPlaces = placesResponse.data.filter(
+    ({ available }) => available
+  );
+
+  if (city_id !== null) {
+    filteredPlaces = filteredPlaces.filter(
+      ({ city_id }) => city_id === city_id
+    );
+  }
+
+  return filteredPlaces.map(
+    ({ id, picture, city_id, available, price, company, about }) => ({
+      id,
+      picture,
+      city_id,
+      available,
+      price,
+      company,
+      about,
+    })
+  );
+};
+
+
+
 const fetchPlace = async (id) => {
   const places = await axios.get(`${API_URL}/places/${id}`);
   return places.data;
@@ -186,6 +222,7 @@ export {
   fetchIasiDashboard,
   fetchBrasovDashboard,
   fetchTimisoaraDashboard,
+  fetchMyPlacesDashboard,
   fetchPlace,
   createPlace,
   updatePlace,

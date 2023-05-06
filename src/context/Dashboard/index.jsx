@@ -12,6 +12,7 @@ import {
   fetchIasiDashboard,
   fetchBrasovDashboard,
   fetchTimisoaraDashboard,
+  fetchMyPlacesDashboard,
   fetchPlace,
   fetchReservedPlaces,
   updatePlace,
@@ -98,6 +99,17 @@ export default function DashboardContextProvider({ children }) {
       });
   }, []);
 
+  const loadMyPlacesDashboard = useCallback((city_id = null) => {
+    dispatch(dashboardLoading());
+    fetchMyPlacesDashboard(city_id)
+      .then((data) => {
+        dispatch(dashboardLoaded(data));
+      })
+      .catch((err) => {
+        dispatch(dashboardLoadFailed(err.message));
+      });
+  }, []);
+
   const fetchCities = useCallback(async () => {
     const data = await fetchDashboard();
     const uniqueCities = [...new Set(data.map((place) => place.city))];
@@ -142,6 +154,7 @@ export default function DashboardContextProvider({ children }) {
       loadIasiDashboard,
       loadBrasovDashboard,
       loadTimisoaraDashboard,
+      loadMyPlacesDashboard,
       fetchCities,
       reservePlace,
       loadReservedPlaces,
@@ -155,6 +168,7 @@ export default function DashboardContextProvider({ children }) {
       loadIasiDashboard,
       loadBrasovDashboard,
       loadTimisoaraDashboard,
+      loadMyPlacesDashboard,
       fetchCities,
       reservePlace,
       loadReservedPlaces,
