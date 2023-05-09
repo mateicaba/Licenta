@@ -30,7 +30,7 @@ export default function Root() {
               }}
             />
           )}
-          style={{ height: "calc(100vh - 84px - 16px)" }}
+          style={{ height: "calc(100vh - 0px )" }}
         >
           <Content />
         </Scrollbars>
