@@ -11,6 +11,13 @@
       "id": 1682345359258,
       "username": "test",
       "password": "test",
+      "rented": 1,
+      "hosted": 0
+    },
+    {
+      "id": 1685266770035,
+      "username": "paul",
+      "password": "1",
       "rented": 0,
       "hosted": 0
     }
@@ -76,7 +83,7 @@
     },
     {
       "id": "b9e11994-eb3d-4b43-a810-127a93f75e48",
-      "available": true,
+      "available": false,
       "picture": "timisoara1.png",
       "city_id": 4,
       "user_id": 1677245919088,
@@ -84,7 +91,7 @@
       "email": "delaneydotson@memora.com",
       "phone": "(847) 471-3423",
       "about": "Nu stau in cetate dar stau langa. Iti pot arata si orasul daca vrei. Sunt putin nevorbit ai grija\r\n",
-      "reserved": ""
+      "reserved": "test"
     },
     {
       "id": "bab35bac-7af8-4926-8b06-23feb6a893c6",
@@ -312,6 +319,18 @@
       "phone": "(838) 475-3785",
       "about": "Cupidatat ea in pariatur quis officia esse labore. Laboris mollit officia nostrud sint labore id consequat occaecat. Ullamco reprehenderit fugiat Lorem ex tempor anim sint consectetur labore eiusmod.\r\n",
       "reserved": ""
+    },
+    {
+      "id": "00c079a7-5d31-41eb-be78-11cb905b2c57",
+      "available": true,
+      "picture": "ff6d002f-b59d-403b-9c8d-412ed001b931.jpg",
+      "city_id": 5,
+      "user_id": 1682345359258,
+      "company": "a",
+      "email": "mateicaba@gmail.com",
+      "phone": "+40721231107",
+      "about": "a",
+      "reserved": ""
     }
   ],
   "reviews": [
@@ -363,6 +382,13 @@
       "rating": 3,
       "username": "matei",
       "id": 7
+    },
+    {
+      "placeId": "217e8cd7-b944-4c5a-abfe-e26b83bb017d",
+      "comment": "123",
+      "rating": 1.5,
+      "username": "test",
+      "id": 8
     }
   ]
 }

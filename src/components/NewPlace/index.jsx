@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from "react";
 import { Form, Input, Button, Upload, Select } from "antd";
 import "./style.css";
-import { uploadPhoto } from "../../api/awsConnection";
+import { uploadPhoto, blobToBuffer } from "../../api/awsConnection";
 import { API_URL } from "../../api/constants";
+
 const { Option } = Select;
+const uuid = require("uuid");
 
 const NewPlace = ({ onCancel }) => {
   const [fileList, setFileList] = useState([]);
@@ -12,33 +14,67 @@ const NewPlace = ({ onCancel }) => {
   const [cities, setCities] = useState([]);
 
   const onFinish = async (values) => {
-    console.log("Received values of form: ", values);
-    console.log("onFinish function called");
-    try {
-      const file = fileList[0];
-      const key = await uploadPhoto(file);
-      console.log("Uploaded file with key:", key);
-      // Add the key to the form values before submitting
-      values.picture = key;
-      // Submit the form values to your backend
-      const response = await fetch(`${API_URL}/places`, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(values),
-      });
-      if (response.ok) {
-        // Handle success, e.g. show success message, redirect, etc.
-        console.log("Form data submitted successfully:", values);
-      } else {
-        // Handle error, e.g. show error message, etc.
-        console.error("Failed to submit form data:", response.statusText);
-      }
-    } catch (error) {
-      console.error("Failed to upload file:", error);
+  console.log("Received values of form: ", values);
+  console.log("onFinish function called");
+
+  // Retrieve user data from sessionStorage
+  const username = sessionStorage.getItem('currentUsername');
+  let userId;
+
+  // Fetch user id based on username
+  try {
+    const response = await fetch(`${API_URL}/users?username=${username}`);
+    const data = await response.json();
+    userId = data[0].id;
+  } catch (error) {
+    console.error("Failed to fetch user data:", error);
+    return;
+  }
+
+  try {
+    const file = fileList[0];
+    const buffer = await blobToBuffer(file.originFileObj);
+    const key = await uploadPhoto({
+      ...file,
+      buffer,
+      mimetype: file.type,
+    });
+    console.log("Uploaded file with key:", key);
+
+    // Map form data to match existing data structure
+    const formData = {
+      id: uuid.v4(), // Generate a new ID for this place
+      available: true,
+      picture: key,
+      city_id: values.city,
+      user_id: userId,
+      company: values.title,
+      email: values.email,
+      phone: values.phone,
+      about: values.description,
+      reserved: ""
+    };
+
+    // Submit the form data to your backend
+    const response = await fetch(`${API_URL}/places`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(formData),
+    });
+    if (response.ok) {
+      // Handle success, e.g. show success message, redirect, etc.
+      console.log("Form data submitted successfully:", formData);
+    } else {
+      // Handle error, e.g. show error message, etc.
+      console.error("Failed to submit form data:", response.statusText);
     }
-  };
+  } catch (error) {
+    console.error("Failed to upload file:", error);
+  }
+};
+
 
   useEffect(() => {
     async function fetchCityName() {
@@ -71,18 +107,27 @@ const NewPlace = ({ onCancel }) => {
     setCityId(value);
   };
 
+  const getFile = (e) => {
+    console.log("Upload event:", e);
+
+    if (Array.isArray(e)) {
+      return e;
+    }
+    return e && e.fileList;
+  };
+
   return (
     <div className="new-place">
       <h1>Add your place</h1>
 
       <Form onFinish={onFinish}>
         <Form.Item
-          name="name"
+          name="title"
           rules={[
             { required: true, message: "Please input the name of your place!" },
           ]}
         >
-          <Input placeholder="Name" />
+          <Input placeholder="Title" />
         </Form.Item>
         <Form.Item name="description">
           <Input.TextArea placeholder="Description" />
@@ -90,7 +135,7 @@ const NewPlace = ({ onCancel }) => {
         <Form.Item
           name="picture"
           valuePropName="fileList"
-          getValueFromEvent={onFileChange}
+          getValueFromEvent={getFile}
           rules={[
             {
               required: true,
@@ -103,6 +148,8 @@ const NewPlace = ({ onCancel }) => {
             listType="picture-card"
             fileList={fileList}
             onRemove={onRemove}
+            onChange={onFileChange}
+            beforeUpload={() => false} // prevent automatic upload
           >
             {fileList.length === 0 && "+ Upload"}
           </Upload>
@@ -115,7 +162,15 @@ const NewPlace = ({ onCancel }) => {
         >
           <Input type="tel" placeholder="Enter your phone number" />
         </Form.Item>
-
+        <Form.Item
+          name="email"
+          rules={[
+            { required: true, message: "Please input your email!" },
+            { type: "email", message: "Please enter a valid email address!" },
+          ]}
+        >
+          <Input type="email" placeholder="Enter your email address" />
+        </Form.Item>
         <Form.Item
           name="city"
           rules={[{ required: true, message: "Please select a city!" }]}
