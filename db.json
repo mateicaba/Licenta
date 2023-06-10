@@ -47,7 +47,7 @@
   "places": [
     {
       "id": "6f15415a-42cf-4a62-885d-1de9f6259dcf",
-      "available": true,
+      "available": false,
       "picture": "cluj1.png",
       "city_id": 1,
       "user_id": 1682345359258,
@@ -55,7 +55,7 @@
       "email": "delaneydotson@satiance.com",
       "phone": "(985) 540-3267",
       "about": "Am in Marasti o garsoniera in care mai pot tine o persoana in orice weekend\r\n",
-      "reserved": ""
+      "reserved": "test"
     },
     {
       "id": "36b6173c-53a3-415c-b7d6-fd4b6b98563b",
@@ -83,7 +83,7 @@
     },
     {
       "id": "b9e11994-eb3d-4b43-a810-127a93f75e48",
-      "available": false,
+      "available": true,
       "picture": "timisoara1.png",
       "city_id": 4,
       "user_id": 1677245919088,
@@ -91,7 +91,7 @@
       "email": "delaneydotson@memora.com",
       "phone": "(847) 471-3423",
       "about": "Nu stau in cetate dar stau langa. Iti pot arata si orasul daca vrei. Sunt putin nevorbit ai grija\r\n",
-      "reserved": "test"
+      "reserved": ""
     },
     {
       "id": "bab35bac-7af8-4926-8b06-23feb6a893c6",
@@ -174,7 +174,8 @@
       "company": "Negruzzi",
       "email": "delaneydotson@cemention.com",
       "phone": "(807) 499-3088",
-      "about": "Pariatur exercitation qui reprehenderit in tempor anim proident ex tempor aliquip pariatur ut. Excepteur amet proident sit quis laborum pariatur do ipsum exercitation. Officia ad dolore aute duis in ea.\r\n"
+      "about": "Pariatur exercitation qui reprehenderit in tempor anim proident ex tempor aliquip pariatur ut. Excepteur amet proident sit quis laborum pariatur do ipsum exercitation. Officia ad dolore aute duis in ea.\r\n",
+      "reserved": ""
     },
     {
       "id": "217e8cd7-b944-4c5a-abfe-e26b83bb017d",
@@ -318,18 +319,6 @@
       "email": "delaneydotson@decratex.com",
       "phone": "(838) 475-3785",
       "about": "Cupidatat ea in pariatur quis officia esse labore. Laboris mollit officia nostrud sint labore id consequat occaecat. Ullamco reprehenderit fugiat Lorem ex tempor anim sint consectetur labore eiusmod.\r\n",
-      "reserved": ""
-    },
-    {
-      "id": "00c079a7-5d31-41eb-be78-11cb905b2c57",
-      "available": true,
-      "picture": "ff6d002f-b59d-403b-9c8d-412ed001b931.jpg",
-      "city_id": 5,
-      "user_id": 1682345359258,
-      "company": "a",
-      "email": "mateicaba@gmail.com",
-      "phone": "+40721231107",
-      "about": "a",
       "reserved": ""
     }
   ],

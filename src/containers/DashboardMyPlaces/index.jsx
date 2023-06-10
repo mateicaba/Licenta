@@ -1,5 +1,5 @@
-import { CheckCircleOutlined } from "@ant-design/icons";
-import { Space, Typography } from "antd";
+import { CheckCircleOutlined, DeleteOutlined } from "@ant-design/icons";
+import { Space, Typography, Button, Popconfirm } from "antd";
 import React, { useCallback, useEffect, useState } from "react";
 import DashboardView from "../../components/DashboardView";
 import DashboardContextProvider, {
@@ -9,6 +9,7 @@ import { useModalContext } from "../../context/Modal";
 import { useRootContext } from "../../context/Root";
 import withContext from "../../context/withContext";
 import { API_URL } from "../../api/constants";
+import { deletePlace } from "../../api/places";
 
 function CityName({ cityId }) {
   const [cityName, setCityName] = useState("");
@@ -48,16 +49,41 @@ function Dashboard() {
     });
   }, []);
 
+  const onDelete = useCallback(
+    async (id) => {
+      try {
+        await deletePlace(id);
+        messageApi.success(`Successfully deleted place with id ${id}`);
+        loadMyPlacesDashboard();
+      } catch (error) {
+        messageApi.error("Error deleting place");
+      }
+    },
+    [loadMyPlacesDashboard, messageApi]
+  );
+
   const onCardClick = useCallback(
     (cardData) => {
       openModal({
         renderContent: () => (
           <Space direction="vertical">
-            <Typography.Title>Reserve {cardData.company}</Typography.Title>
+            <Typography.Title>Your Place {cardData.company}</Typography.Title>
             <div>{cardData.about}</div>
             <div>
               <CityName cityId={cardData.city_id} />{" "}
               <CheckCircleOutlined style={{ color: "green" }} />
+            </div>
+            <div style={{ textAlign: "right" }}>
+              <Popconfirm
+                title="Are you sure to delete this place?"
+                onConfirm={() => onDelete(cardData.id)}
+                okText="Yes"
+                cancelText="No"
+              >
+                <Button icon={<DeleteOutlined />} danger>
+                  Delete
+                </Button>
+              </Popconfirm>
             </div>
           </Space>
         ),
@@ -67,16 +93,16 @@ function Dashboard() {
           messageApi.success(
             `Reservation for ${cardData.company} was successful!`
           );
-await incrementRented();
+          await incrementRented();
         },
       });
     },
-    [openModal, reservePlace, incrementRented, messageApi]
+    [openModal, reservePlace, incrementRented, messageApi, onDelete]
   );
 
   useEffect(() => {
     loadMyPlacesDashboard();
-  }, []);
+  }, [loadMyPlacesDashboard]);
 
   return (
     <DashboardView

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Form, Input, Button, Upload, Select } from "antd";
+import { Form, Input, Button, Upload, Select, message } from "antd";
 import "./style.css";
 import { uploadPhoto, blobToBuffer } from "../../api/awsConnection";
 import { API_URL } from "../../api/constants";
@@ -66,9 +66,11 @@ const NewPlace = ({ onCancel }) => {
     if (response.ok) {
       // Handle success, e.g. show success message, redirect, etc.
       console.log("Form data submitted successfully:", formData);
+      message.success("New place created");
     } else {
       // Handle error, e.g. show error message, etc.
       console.error("Failed to submit form data:", response.statusText);
+      message.error("Failed to create place");
     }
   } catch (error) {
     console.error("Failed to upload file:", error);

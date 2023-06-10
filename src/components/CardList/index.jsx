@@ -39,6 +39,7 @@ export default function CardList({ list, onCardClick }) {
           title={place.company}
           description={cityName || "Loading..."}
           avatar={<CheckCircleOutlined style={{ color: "green" }} />}
+          
         />
       </Card>
     );
