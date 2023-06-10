@@ -23,6 +23,7 @@ import {
   dashboardLoading,
 } from "./actions";
 import reducer, { initialState } from "./reducer";
+import { API_URL } from "../../api/constants";
 
 const DashboardContext = createContext(initialState);
 
@@ -145,6 +146,16 @@ export default function DashboardContextProvider({ children }) {
     [loadDashboard]
   );
 
+  const fetchPlaceDetails = useCallback(async (id) => {
+    try {
+      const place = await fetchPlace(id);
+      return place;
+    } catch (error) {
+      console.error("Failed to fetch place details:", error);
+      throw error;
+    }
+  }, []);
+
   const providerValue = useMemo(
     () => ({
       dashboard: state,
@@ -159,6 +170,7 @@ export default function DashboardContextProvider({ children }) {
       reservePlace,
       loadReservedPlaces,
       cancelReservation,
+      fetchPlace: fetchPlaceDetails,
     }),
     [
       state,
@@ -173,8 +185,10 @@ export default function DashboardContextProvider({ children }) {
       reservePlace,
       loadReservedPlaces,
       cancelReservation,
+      fetchPlaceDetails,
     ]
   );
+
   return (
     <DashboardContext.Provider value={providerValue}>
       {children}
