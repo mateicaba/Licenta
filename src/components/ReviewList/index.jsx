@@ -1,5 +1,5 @@
 import React, { useContext, useState } from "react";
-import { Table, Space, Button, Modal } from "antd";
+import { Table, Space, Button, Modal, Rate } from "antd";
 import ReviewContext from "../../context/Reviews/ReviewContext";
 import ReviewForm from "../ReviewForm";
 
@@ -10,11 +10,21 @@ const ReviewList = ({ placeId }) => {
 
   const columns = [
     {
+      title: "Username",
+      dataIndex: "username",
+      key: "username",
+    },
+    {
       title: "Rating",
       dataIndex: "rating",
       key: "rating",
       render: (rating) => {
-        return <Space>{rating}</Space>;
+        return (
+          <Space>
+            {rating}
+            <Rate disabled allowHalf defaultValue={rating} />
+          </Space>
+        );
       },
     },
     {
@@ -25,18 +35,29 @@ const ReviewList = ({ placeId }) => {
     {
       title: "Actions",
       key: "actions",
-      render: (text, record) => (
-        <Space size="middle">
-          <Button type="primary" onClick={() => handleEdit(record)}>
-            Edit
-          </Button>
-          <Button type="primary" danger onClick={() => handleDelete(record.id)}>
-            Delete
-          </Button>
-        </Space>
-      ),
+      render: (text, record) => {
+        const currentUsername = sessionStorage.getItem("currentUsername");
+
+        if (record.username === currentUsername) {
+          return (
+            <Space size="middle">
+              <Button type="primary" onClick={() => handleEdit(record)}>
+                Edit
+              </Button>
+              <Button
+                type="primary"
+                danger
+                onClick={() => handleDelete(record.id)}
+              >
+                Delete
+              </Button>
+            </Space>
+          );
+        }
+      },
     },
   ];
+
 
   const handleDelete = (id) => {
     Modal.confirm({

@@ -87,8 +87,7 @@ function Reservation() {
       <p>Get in touch with your new friend!</p>
       <br></br>
       <p>Don't forget to leave a review afterwards</p>
-      {/* <ReviewForm /> */}
-      <ReviewList />
+      <ReviewList placeId={placeDetails?.id} />
       <Modal visible={modalVisible} onCancel={closeModal} footer={null}>
         <p>Email: {placeDetails?.email}</p>
         <p>Phone: {placeDetails?.phone}</p>

@@ -4,14 +4,14 @@
       "id": 1677245919088,
       "username": "matei",
       "password": "admin",
-      "rented": 3,
+      "rented": 4,
       "hosted": 1
     },
     {
       "id": 1682345359258,
       "username": "test",
       "password": "test",
-      "rented": 1,
+      "rented": 3,
       "hosted": 0
     },
     {
@@ -55,11 +55,11 @@
       "email": "delaneydotson@satiance.com",
       "phone": "(985) 540-3267",
       "about": "Am in Marasti o garsoniera in care mai pot tine o persoana in orice weekend\r\n",
-      "reserved": "test"
+      "reserved": "matei"
     },
     {
       "id": "36b6173c-53a3-415c-b7d6-fd4b6b98563b",
-      "available": true,
+      "available": false,
       "picture": "bucuresti1.png",
       "city_id": 5,
       "user_id": 1677245919088,
@@ -67,7 +67,7 @@
       "email": "delaneydotson@recognia.com",
       "phone": "(975) 550-2244",
       "about": "Daca vrei sa vii in Bucuresti in vizita sunt disponibil oricand cat timp nu e sesiune dar ma gandesc ca atunci inveti si tu. Stau si relativ in centru si putem iesi seara la baut\r\n",
-      "reserved": ""
+      "reserved": "test"
     },
     {
       "id": "5dc428dc-9036-4d2a-b372-75fe44e7cf72",
@@ -83,7 +83,7 @@
     },
     {
       "id": "b9e11994-eb3d-4b43-a810-127a93f75e48",
-      "available": true,
+      "available": false,
       "picture": "timisoara1.png",
       "city_id": 4,
       "user_id": 1677245919088,
@@ -91,11 +91,11 @@
       "email": "delaneydotson@memora.com",
       "phone": "(847) 471-3423",
       "about": "Nu stau in cetate dar stau langa. Iti pot arata si orasul daca vrei. Sunt putin nevorbit ai grija\r\n",
-      "reserved": ""
+      "reserved": "test"
     },
     {
       "id": "bab35bac-7af8-4926-8b06-23feb6a893c6",
-      "available": true,
+      "available": false,
       "picture": "brasov1.png",
       "city_id": 3,
       "user_id": 1677245919088,
@@ -103,7 +103,7 @@
       "email": "delaneydotson@chorizon.com",
       "phone": "(991) 432-2757",
       "about": "Nu prea verific aplicatia asa ca iti recomand sa suni daca te gandesti sa stai la mine in Brasov\r\n",
-      "reserved": ""
+      "reserved": "test"
     },
     {
       "id": "e125b6b7-e32d-4f7d-9be8-d9991cad5c21",
@@ -378,6 +378,27 @@
       "rating": 1.5,
       "username": "test",
       "id": 8
+    },
+    {
+      "placeId": "6f15415a-42cf-4a62-885d-1de9f6259dcf",
+      "comment": "ll",
+      "rating": 5,
+      "username": "matei",
+      "id": 10
+    },
+    {
+      "placeId": "6f15415a-42cf-4a62-885d-1de9f6259dcf",
+      "comment": "a",
+      "rating": 5,
+      "username": "test",
+      "id": 11
+    },
+    {
+      "placeId": "6f15415a-42cf-4a62-885d-1de9f6259dcf",
+      "comment": "bun",
+      "rating": 3.5,
+      "username": "matei",
+      "id": 12
     }
   ]
 }
