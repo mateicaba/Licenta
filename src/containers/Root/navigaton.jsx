@@ -26,8 +26,8 @@ export default function Navigation() {
         left: 0,
         top: 0,
         bottom: 0,
-        scrollbarWidth: "thin", // Adjust the width of the scrollbar
-        scrollbarColor: "#888 #f1f1f1", // Define the color of the thumb and track
+        scrollbarWidth: "thin", 
+        scrollbarColor: "#888 #f1f1f1", 
       }}
     >
       <Scrollbars

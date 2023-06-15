@@ -11,7 +11,7 @@
       "id": 1682345359258,
       "username": "test",
       "password": "test",
-      "rented": 3,
+      "rented": 0,
       "hosted": 0
     },
     {
@@ -59,7 +59,7 @@
     },
     {
       "id": "36b6173c-53a3-415c-b7d6-fd4b6b98563b",
-      "available": false,
+      "available": true,
       "picture": "bucuresti1.png",
       "city_id": 5,
       "user_id": 1677245919088,
@@ -67,7 +67,7 @@
       "email": "delaneydotson@recognia.com",
       "phone": "(975) 550-2244",
       "about": "Daca vrei sa vii in Bucuresti in vizita sunt disponibil oricand cat timp nu e sesiune dar ma gandesc ca atunci inveti si tu. Stau si relativ in centru si putem iesi seara la baut\r\n",
-      "reserved": "test"
+      "reserved": ""
     },
     {
       "id": "5dc428dc-9036-4d2a-b372-75fe44e7cf72",
@@ -83,19 +83,19 @@
     },
     {
       "id": "b9e11994-eb3d-4b43-a810-127a93f75e48",
-      "available": false,
+      "available": true,
       "picture": "timisoara1.png",
       "city_id": 4,
       "user_id": 1677245919088,
       "company": "Cetate",
-      "email": "delaneydotson@memora.com",
-      "phone": "(847) 471-3423",
+      "email": "rauldobre@gmail.com",
+      "phone": "0721462294",
       "about": "Nu stau in cetate dar stau langa. Iti pot arata si orasul daca vrei. Sunt putin nevorbit ai grija\r\n",
-      "reserved": "test"
+      "reserved": ""
     },
     {
       "id": "bab35bac-7af8-4926-8b06-23feb6a893c6",
-      "available": false,
+      "available": true,
       "picture": "brasov1.png",
       "city_id": 3,
       "user_id": 1677245919088,
@@ -103,7 +103,7 @@
       "email": "delaneydotson@chorizon.com",
       "phone": "(991) 432-2757",
       "about": "Nu prea verific aplicatia asa ca iti recomand sa suni daca te gandesti sa stai la mine in Brasov\r\n",
-      "reserved": "test"
+      "reserved": ""
     },
     {
       "id": "e125b6b7-e32d-4f7d-9be8-d9991cad5c21",
@@ -316,9 +316,9 @@
       "city_id": 1,
       "user_id": 1682345359258,
       "company": "Centru",
-      "email": "delaneydotson@decratex.com",
-      "phone": "(838) 475-3785",
-      "about": "Cupidatat ea in pariatur quis officia esse labore. Laboris mollit officia nostrud sint labore id consequat occaecat. Ullamco reprehenderit fugiat Lorem ex tempor anim sint consectetur labore eiusmod.\r\n",
+      "email": "alexandrumihai@yahoo.com",
+      "phone": "0771257389",
+      "about": "Studio situat in zona centrala. Sunt baiat la info si stau singur, am loc pentru inca o persoana in sufragerie.\r\n",
       "reserved": ""
     }
   ],
@@ -399,6 +399,34 @@
       "rating": 3.5,
       "username": "matei",
       "id": 12
+    },
+    {
+      "placeId": "b9e11994-eb3d-4b43-a810-127a93f75e48",
+      "comment": "M-am simtit excelent",
+      "rating": 5,
+      "username": "Costin",
+      "id": 13
+    },
+    {
+      "placeId": "b9e11994-eb3d-4b43-a810-127a93f75e48",
+      "comment": "nu ne-am inteles la mancare dar in rest a fost ok",
+      "rating": 4.5,
+      "username": "Darius",
+      "id": 14
+    },
+    {
+      "placeId": "b9e11994-eb3d-4b43-a810-127a93f75e48",
+      "comment": "Super baiat!",
+      "rating": 5,
+      "username": "George",
+      "id": 15
+    },
+    {
+      "placeId": "b9e11994-eb3d-4b43-a810-127a93f75e48",
+      "comment": "recomand oricui!",
+      "rating": 5,
+      "username": "test",
+      "id": 16
     }
   ]
 }
