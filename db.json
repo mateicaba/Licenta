@@ -11,13 +11,20 @@
       "id": 1682345359258,
       "username": "test",
       "password": "test",
-      "rented": 0,
+      "rented": 1,
       "hosted": 0
     },
     {
       "id": 1685266770035,
       "username": "paul",
       "password": "1",
+      "rented": 0,
+      "hosted": 0
+    },
+    {
+      "id": 1687351557926,
+      "username": "mihai",
+      "password": "123*r",
       "rented": 0,
       "hosted": 0
     }
@@ -55,7 +62,7 @@
       "email": "delaneydotson@satiance.com",
       "phone": "(985) 540-3267",
       "about": "Am in Marasti o garsoniera in care mai pot tine o persoana in orice weekend\r\n",
-      "reserved": "matei"
+      "reserved": ""
     },
     {
       "id": "36b6173c-53a3-415c-b7d6-fd4b6b98563b",
@@ -95,7 +102,7 @@
     },
     {
       "id": "bab35bac-7af8-4926-8b06-23feb6a893c6",
-      "available": true,
+      "available": false,
       "picture": "brasov1.png",
       "city_id": 3,
       "user_id": 1677245919088,
@@ -103,7 +110,7 @@
       "email": "delaneydotson@chorizon.com",
       "phone": "(991) 432-2757",
       "about": "Nu prea verific aplicatia asa ca iti recomand sa suni daca te gandesti sa stai la mine in Brasov\r\n",
-      "reserved": ""
+      "reserved": "test"
     },
     {
       "id": "e125b6b7-e32d-4f7d-9be8-d9991cad5c21",
@@ -114,7 +121,7 @@
       "company": "Patria",
       "email": "delaneydotson@isotronic.com",
       "phone": "(927) 565-2068",
-      "about": "Pariatur sunt aute sit reprehenderit cillum ex ad sit sit labore ex tempor. Quis culpa sit eiusmod anim nostrud ex magna eiusmod. Sunt qui eu ipsum officia id pariatur. Sit anim fugiat excepteur sint labore exercitation sunt deserunt nisi nostrud voluptate exercitation culpa. Amet fugiat laborum eu proident aute fugiat excepteur veniam dolore ex ipsum ipsum.\r\n",
+      "about": "Am o camera libera langa Patria, la 10 minute de centru si la 3 minute de AFI si principalele cluburi din oras\r\n",
       "reserved": ""
     },
     {
@@ -126,7 +133,7 @@
       "company": "Militari Plaza",
       "email": "delaneydotson@steelfab.com",
       "phone": "(968) 525-3892",
-      "about": "Dolor anim ea id amet consectetur reprehenderit ut ex quis elit quis adipisicing ex adipisicing. Est cupidatat sint ipsum officia consequat aute laboris incididunt deserunt ex id esse mollit. Reprehenderit esse est do ad culpa sunt irure dolore incididunt est labore. Incididunt amet aliqua esse sunt qui veniam Lorem labore quis dolor aliqua commodo fugiat. Cupidatat excepteur quis excepteur ipsum proident aliquip aliquip commodo ea in duis.\r\n",
+      "about": "Nu e cel mai ok cartier dar nici cel mai rau. Sper ca iti place distractia daca te gandesti sa vii\r\n",
       "reserved": ""
     },
     {
@@ -138,7 +145,7 @@
       "company": "Victoriei",
       "email": "delaneydotson@kegular.com",
       "phone": "(852) 497-3666",
-      "about": "Aute eu tempor eiusmod ad excepteur nulla. Veniam non pariatur eiusmod velit cupidatat excepteur ut laboris aliquip elit cupidatat mollit. Dolor minim commodo quis irure aute incididunt. Do voluptate enim culpa in adipisicing veniam amet sunt ipsum. Id culpa do in sint deserunt occaecat nostrud sunt deserunt. Minim culpa labore culpa adipisicing id ea deserunt magna reprehenderit.\r\n",
+      "about": "Ma ajuti cu niste bani de chirie daca vii ca e scump tare aici, dar macar e aproape de centrul vechi\r\n",
       "reserved": ""
     },
     {
@@ -150,7 +157,7 @@
       "company": "Facultatea de Medicina",
       "email": "delaneydotson@icology.com",
       "phone": "(807) 451-2571",
-      "about": "Velit reprehenderit deserunt reprehenderit magna esse aliqua cupidatat pariatur labore. Nulla ut tempor nostrud esse Lorem laboris sit. Aliquip esse laboris dolore quis.\r\n",
+      "about": "Nu prea ies din casa ca am de invatat dar macar poate vine lume pe la mine ca e mai simplu asa\r\n",
       "reserved": ""
     },
     {
@@ -162,7 +169,7 @@
       "company": "Iesire spre Turda",
       "email": "mateicaba@gmail.com",
       "phone": "(920) 565-2512",
-      "about": "Officia cupidatat amet cupidatat in Lorem enim dolor nostrud consectetur velit labore adipisicing magna do. Culpa fugiat est cillum magna ipsum amet tempor proident aliqua amet veniam. Ut laborum eu esse nulla excepteur non culpa esse sit aliqua ut elit ipsum ullamco. Ex non ex ullamco et amet esse qui ea reprehenderit esse enim ad pariatur aliquip. Id dolore deserunt occaecat tempor nostrud tempor Lorem. Veniam aliquip qui dolor quis labore minim qui enim Lorem enim. Enim deserunt qui velit veniam eiusmod eu eiusmod commodo quis culpa occaecat velit culpa.\r\n",
+      "about": "Fix in varful dealului, e ok cand pleci de acasa dar mai rau cand e intorci. Daca nu ai conditie fizica oricum nu rezisti cu mine\r\n",
       "reserved": ""
     },
     {
@@ -174,7 +181,7 @@
       "company": "Negruzzi",
       "email": "delaneydotson@cemention.com",
       "phone": "(807) 499-3088",
-      "about": "Pariatur exercitation qui reprehenderit in tempor anim proident ex tempor aliquip pariatur ut. Excepteur amet proident sit quis laborum pariatur do ipsum exercitation. Officia ad dolore aute duis in ea.\r\n",
+      "about": "Nu prea vine asa multa lume in Iasi comparativ cu celelalte orase dar imi incerc si eu norocul. Iti garantez ca o sa te distrezi\r\n",
       "reserved": ""
     },
     {
@@ -186,7 +193,7 @@
       "company": "Tipografiilor",
       "email": "delaneydotson@bleeko.com",
       "phone": "(857) 538-3000",
-      "about": "Consequat exercitation labore esse pariatur labore ad. Eiusmod do esse occaecat cillum amet velit. Minim ad esse reprehenderit laborum.\r\n",
+      "about": "Primul oras iluminat electric!! Am cam rama in urma intre timp dar tot o ducem bine. Hai sa te congingi singur\r\n",
       "reserved": ""
     },
     {
@@ -198,7 +205,7 @@
       "company": "Dorobantilor",
       "email": "delaneydotson@unq.com",
       "phone": "(999) 420-3649",
-      "about": "Occaecat id ad nulla in irure nostrud aliqua aute magna. Amet sint tempor sit Lorem sint elit consectetur qui. Eiusmod cillum sit Lorem ut est laboris. Eiusmod ea elit voluptate minim irure exercitation mollit do qui minim Lorem aliqua esse. Officia labore do ullamco duis do ut eiusmod sint fugiat.\r\n",
+      "about": "De abia m-am mutat aici deci nu stiu prea multe, daca vii o sa descoperim impreuna ca sunt multe de facut\r\n",
       "reserved": ""
     },
     {
@@ -210,7 +217,7 @@
       "company": "Stefan cel Mare",
       "email": "delaneydotson@letpro.com",
       "phone": "(985) 453-3272",
-      "about": "Tempor pariatur voluptate id proident sunt. Ipsum reprehenderit pariatur minim irure enim commodo dolor. Eiusmod occaecat id aliqua non qui non nisi non culpa. Pariatur esse occaecat incididunt sint tempor consequat pariatur laborum esse. Minim reprehenderit ullamco pariatur aute sit.\r\n",
+      "about": "Recomand mai ales daca esti dinamovist. Iti garantez ca ratam doar meciurile din deplasare. Forta Dinamo\r\n",
       "reserved": ""
     },
     {
@@ -222,7 +229,7 @@
       "company": "Coresi",
       "email": "delaneydotson@myopium.com",
       "phone": "(840) 405-2878",
-      "about": "Anim et excepteur do mollit dolor sit adipisicing aliqua nostrud ullamco est magna in. Eiusmod enim esse amet exercitation ullamco. Sunt deserunt anim magna nulla sunt velit. Velit cillum anim velit cillum ex consectetur sunt culpa sunt.\r\n",
+      "about": "Daca nu iti place Brasovul e locul perfect ca nici nu zici ca esti in Brasov\r\n",
       "reserved": ""
     },
     {
@@ -234,7 +241,7 @@
       "company": "Copou",
       "email": "delaneydotson@earbang.com",
       "phone": "(956) 565-3565",
-      "about": "Excepteur aliquip eu reprehenderit ullamco ut culpa adipisicing. Laboris Lorem ipsum occaecat commodo ex duis incididunt nostrud. Excepteur irure sunt cillum duis fugiat elit velit qui dolor cupidatat nisi et. Aliquip magna veniam quis reprehenderit sit cupidatat.\r\n",
+      "about": "Noi si toti scriitorii importanti ce o sa mai stam in Copou toata ziua\r\n",
       "reserved": ""
     },
     {
@@ -246,7 +253,7 @@
       "company": "Calea Bucuresti",
       "email": "delaneydotson@ovium.com",
       "phone": "(919) 481-2640",
-      "about": "Culpa proident voluptate elit commodo. Est nostrud aliquip consequat ipsum ea irure. Magna do laboris do et dolor voluptate ut ea cillum ex aliquip non minim aute. Ullamco pariatur dolor dolor anim elit mollit. Duis non eu voluptate sunt in. Excepteur id culpa dolore duis consectetur magna dolor consequat duis officia. Quis duis reprehenderit irure ut.\r\n",
+      "about": "Sa iti iei dopuri de urechi daca nu dormi bine ca e galagie mai ceva ca in Bucuresti. In rest e misto tare\r\n",
       "reserved": ""
     },
     {
@@ -258,7 +265,7 @@
       "company": "Palatul Culturii",
       "email": "delaneydotson@fleetmix.com",
       "phone": "(908) 557-3114",
-      "about": "Dolor sunt velit eiusmod do occaecat id ea ut et commodo eu labore. Anim culpa eu proident deserunt cupidatat. Elit occaecat ea et ea minim nulla irure laboris mollit sunt culpa veniam velit. Mollit tempor ipsum quis nostrud eu consequat labore cupidatat.\r\n",
+      "about": "Fix in centru. Oricum tot ce e important in Iasi e in centru deci o sa stam bine\r\n",
       "reserved": ""
     },
     {
@@ -270,7 +277,7 @@
       "company": "Zona Gara",
       "email": "delaneydotson@ultrasure.com",
       "phone": "(932) 577-3607",
-      "about": "Nulla irure irure nulla elit mollit ex dolore ad officia consequat fugiat laboris. Laboris dolor enim anim aliqua ullamco irure aliquip esse amet reprehenderit. Nostrud veniam eu labore excepteur irure mollit ut laboris ut nostrud. Quis exercitation velit quis nisi duis cupidatat culpa deserunt consequat sit irure excepteur. Duis dolore aliquip nostrud id eiusmod cillum commodo cupidatat. Adipisicing ea veniam sit incididunt ipsum tempor reprehenderit ad enim est sunt occaecat.\r\n",
+      "about": "Numai bine langa gara ca sa ajungi usor la mine. E si mega non stop la parter\r\n",
       "reserved": ""
     },
     {
@@ -282,7 +289,7 @@
       "company": "Mitropolie",
       "email": "delaneydotson@recritube.com",
       "phone": "(862) 524-3703",
-      "about": "Incididunt ad sunt laborum ad labore sint ea ex veniam minim elit laboris voluptate nostrud. Labore voluptate nulla non laboris reprehenderit magna. Laborum id consequat ea laboris irure ut non irure ea aute sunt dolore ullamco excepteur. Ut eiusmod voluptate ipsum sit deserunt.\r\n",
+      "about": "Cel mai naspa e cand ajungi dimineata din club si nu poti dormi ca bat clopotele. Restul sunt numai de bine\r\n",
       "reserved": ""
     },
     {
@@ -294,7 +301,7 @@
       "company": "Vitan",
       "email": "delaneydotson@isosphere.com",
       "phone": "(924) 579-2705",
-      "about": "Minim ipsum ex proident ad sit Lorem. Reprehenderit nulla aute id nostrud. Ea aliqua velit sunt cupidatat officia est ut sunt commodo reprehenderit est. Nisi ad aute non id dolor culpa aliquip.\r\n",
+      "about": "Stiu ca sunt optiuni de loc mai ok dar om ca mine e doar unul din 1000 iti zic eu\r\n",
       "reserved": ""
     },
     {
@@ -306,7 +313,7 @@
       "company": "Steagu",
       "email": "delaneydotson@dragbot.com",
       "phone": "(849) 573-2977",
-      "about": "Et fugiat proident esse tempor reprehenderit officia officia consectetur exercitation culpa ad irure. Proident velit ullamco ipsum est deserunt incididunt commodo cupidatat dolore esse commodo duis. Ad adipisicing eiusmod mollit nisi ex sunt esse exercitation reprehenderit sint incididunt et laboris. Esse ipsum proident reprehenderit voluptate labore tempor in excepteur eiusmod magna et est culpa laboris.\r\n",
+      "about": "Imi pare rau daca esti genul care are pofte ca e mc donalds non stop langa\r\n",
       "reserved": ""
     },
     {
@@ -318,84 +325,84 @@
       "company": "Centru",
       "email": "alexandrumihai@yahoo.com",
       "phone": "0771257389",
-      "about": "Studio situat in zona centrala. Sunt baiat la info si stau singur, am loc pentru inca o persoana in sufragerie.\r\n",
+      "about": "Fix in groapa stau in Cluj deci de oriunde de aici doar urci. E bine cand mergi spre dimineata acasa\r\n",
       "reserved": ""
     }
   ],
   "reviews": [
     {
       "placeId": "bab35bac-7af8-4926-8b06-23feb6a893c6",
-      "comment": "aa",
-      "rating": 1.5,
+      "comment": "ok",
+      "rating": 4.5,
       "username": "matei",
       "id": 1
     },
     {
       "placeId": "bab35bac-7af8-4926-8b06-23feb6a893c6",
       "comment": "bun",
-      "rating": 1.5,
-      "username": "matei",
+      "rating": 3.5,
+      "username": "alex",
       "id": 2
     },
     {
-      "placeId": "bab35bac-7af8-4926-8b06-23feb6a893c6",
-      "comment": "dd",
-      "rating": 4.5,
-      "username": "matei",
+      "placeId": "6f15415a-42cf-4a62-885d-1de9f6259dcf",
+      "comment": "excelent",
+      "rating": 5,
+      "username": "andrey",
       "id": 3
     },
     {
       "placeId": "bab35bac-7af8-4926-8b06-23feb6a893c6",
-      "comment": "a",
-      "rating": 3,
-      "username": "matei",
+      "comment": "foarte bine",
+      "rating": 4.5,
+      "username": "silviu",
       "id": 4
     },
     {
       "placeId": "b902d38e-ebb2-468e-928d-eb4310ff5bcf",
-      "comment": "a",
+      "comment": "5 stele",
       "rating": 5,
-      "username": "matei",
+      "username": "coman",
       "id": 5
     },
     {
       "placeId": "b902d38e-ebb2-468e-928d-eb4310ff5bcf",
-      "comment": "ll",
+      "comment": "chiar super",
       "rating": 5,
-      "username": "matei",
+      "username": "raul",
       "id": 6
     },
     {
       "placeId": "b902d38e-ebb2-468e-928d-eb4310ff5bcf",
-      "comment": "a",
+      "comment": "am fost si in locuri mai ok",
       "rating": 3,
-      "username": "matei",
+      "username": "Paunescu",
       "id": 7
     },
     {
       "placeId": "217e8cd7-b944-4c5a-abfe-e26b83bb017d",
-      "comment": "123",
-      "rating": 1.5,
-      "username": "test",
+      "comment": "m-am simtit foarte bine",
+      "rating": 5,
+      "username": "alina",
       "id": 8
     },
     {
       "placeId": "6f15415a-42cf-4a62-885d-1de9f6259dcf",
-      "comment": "ll",
+      "comment": "super",
       "rating": 5,
       "username": "matei",
       "id": 10
     },
     {
       "placeId": "6f15415a-42cf-4a62-885d-1de9f6259dcf",
-      "comment": "a",
+      "comment": "inca tinem legatura",
       "rating": 5,
-      "username": "test",
+      "username": "sergiu",
       "id": 11
     },
     {
       "placeId": "6f15415a-42cf-4a62-885d-1de9f6259dcf",
-      "comment": "bun",
+      "comment": "bunicel",
       "rating": 3.5,
       "username": "matei",
       "id": 12
@@ -425,7 +432,7 @@
       "placeId": "b9e11994-eb3d-4b43-a810-127a93f75e48",
       "comment": "recomand oricui!",
       "rating": 5,
-      "username": "test",
+      "username": "georgi",
       "id": 16
     }
   ]
